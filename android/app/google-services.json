@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "617446123719",
+    "project_id": "mia-connect",
+    "storage_bucket": "mia-connect.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:617446123719:android:24f555a5016a534efd76e2",
+        "android_client_info": {
+          "package_name": "com.miaconnectapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "617446123719-icqjj8i4f1bbgmhuvli13jej3ecm6bma.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.miaconnectapp",
+            "certificate_hash": "bcc92bd514adb8ddb320ff2ace226bf7fecb074f"
+          }
+        },
+        {
+          "client_id": "617446123719-u8n0uv9gfd6vnhdgrqpta92vmubrnkdv.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.miaconnectapp",
+            "certificate_hash": "e0b3556eccda0e6c7075aafe2d8a8a29d8dd6b7f"
+          }
+        },
+        {
+          "client_id": "617446123719-38udn2sces5hlkh8i4uak9faa39vq3dl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBQ-PbZltsraJt0EhGoB-1r9iDflGA7SuM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617446123719-38udn2sces5hlkh8i4uak9faa39vq3dl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
