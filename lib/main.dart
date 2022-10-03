@@ -84,7 +84,8 @@ class _MyAppState extends State<MyApp> {
               nextScreen: BlocBuilder<AuthenticationBloc, AuthenticationState>(
                 builder: (context, state) {
                   if (state is AuthenticationAuthenticated) {
-                    return MultiBlocProvider(
+                    return 
+                    MultiBlocProvider(
                       providers: [
                       BlocProvider<ProfileBloc>(
                         create: (BuildContext context) => ProfileBloc(),
@@ -102,16 +103,30 @@ class _MyAppState extends State<MyApp> {
                   }
                   if (state is AuthenticationUnauthenticated) {
                     print("here");
-                    return BlocProvider(
-                      create: (context) {
-                        return LoginBloc(
-                          authenticationBloc:
-                              BlocProvider.of<AuthenticationBloc>(context),
-                          userRepository: widget.userRepository,
-                        );
-                      },
-                      child: Login_Page(),
-                    );
+                     return MultiBlocProvider(
+                      providers: [
+                      BlocProvider<ProfileBloc>(
+                        create: (BuildContext context) => ProfileBloc(),
+                      ),
+                       BlocProvider<BlogBloc>(
+                        create: (BuildContext context) => BlogBloc(),
+                      ),
+                       BlocProvider<Event_Bloc>(
+                        create: (BuildContext context) => Event_Bloc(),
+                      ),
+                      BlocProvider<News_Bloc>(
+                        create: (BuildContext context) => News_Bloc(),
+                      ),
+                    ], child: MyHomePage()); // BlocProvider(
+                    //   create: (context) {
+                    //     return LoginBloc(
+                    //       authenticationBloc:
+                    //           BlocProvider.of<AuthenticationBloc>(context),
+                    //       userRepository: widget.userRepository,
+                    //     );
+                    //   },
+                    //   child: Login_Page(),
+                    // );
                   }
 
                   if (state is AuthenticationLoading) {

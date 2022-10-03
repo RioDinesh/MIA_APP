@@ -49,26 +49,29 @@ class ApiBase{
    return "https://miaindia.org/app/api/women-entrepreneurs.php";
  }
  static String get Management{
-   return "https://miaindia.org/app/api/Management.php";
+   return "https://miaindia.org/our-team/";
  }
  static String get Women_Entrepreneurship{
-   return "https://miaindia.org/app/api/women-entrepreneurs.php";
+   return "https://miaindia.org/women-entrepreneurs-wing-awe/";
  }
  static String get Institutional_Tieups{
-   return "https://miaindia.org/app/api/institutional.php";
+   return "https://miaindia.org/institutional-tie-up/";
  }
  static String get Startup_Support{
-   return "https://miaindia.org/app/api/startup.php";
+   return "https://miaindia.org/start-up-ecosystem/";
  }
  static String get Membership_Drive{
-   return "https://miaindia.org/app/api/membership-drive.php";
+   return "https://miaindia.org/events-and-membership/";
  }
  static String get CSR_Activities{
-   return "https://miaindia.org/app/api/CSR.php";
+   return "https://miaindia.org/fund-raising/";
  }
 
  static String get Business_Networking{
-   return "https://miaindia.org/app/api/business-networking.php";
+   return "https://miaindia.org/business-network-meetings-bnm/";
+ }
+ static String get Web_Event{
+   return "https://miaindia.org/events/";
  }
  static String get getManufacturing{
    return "get_manufacture_category.php";
@@ -86,3 +89,12 @@ class ApiBase{
  
 //6034c1ce6679a-1614070222.JPG
 }
+
+// [2:51 pm, 28/09/2022] Dinaharan S: Managing Council https://miaindia.org/our-team/
+// Startup Support https://miaindia.org/start-up-ecosystem/
+// Institutional Tie Ups https://miaindia.org/institutional-tie-up/
+// Events & Memberships https://miaindia.org/events-and-membership/
+// CSR & Fundraising https://miaindia.org/fund-raising/
+// Business Network (BNM) https://miaindia.org/business-network-meetings-bnm/
+// Women Entrepreneuship (AWE) https://miaindia.org/women-entrepreneurs-wing-awe/
+// [2:53 pm, 28/09/2022] Dinaharan S: Events - https://miaindia.org/events/ --

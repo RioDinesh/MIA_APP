@@ -51,29 +51,29 @@ class _MoreMenuState extends State<MoreMenu> {
                                children: [
                                  InkWell(
                                    onTap: (){
-                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Management,name:"Management" ,)));
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Management,name:"Managing Council" ,)));
                                    },
                                    child: Container(
                                      padding: EdgeInsets.all(4),
-                                     child: Text("Management",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
+                                     child: Text("Managing Council",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
                                    ),
                                  ),
                                  InkWell(
                                    onTap: (){
-                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Women_Entrepreneurship,name:"Women Entrepreneurship" ,)));
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Women_Entrepreneurship,name:"Women Entrepreneuship (AWE)" ,)));
                                    },
                                    child: Container(
                                      padding: EdgeInsets.all(4),
-                                     child: Text("Women Entrepreneurship",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
+                                     child: Text("Women Entrepreneuship (AWE)",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
                                    ),
                                  ),
                                  InkWell(
                                    onTap: (){
-                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Institutional_Tieups,name: "Institutional Tieups",)));
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Institutional_Tieups,name: "Institutional Tie Ups",)));
                                    },
                                    child: Container(
                                      padding: EdgeInsets.all(4),
-                                     child: Text("Institutional Tieups",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
+                                     child: Text("Institutional Tie Ups",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
                                    ),
                                  ),
                                  InkWell(
@@ -87,29 +87,38 @@ class _MoreMenuState extends State<MoreMenu> {
                                  ),
                                  InkWell(
                                    onTap: (){
-                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Membership_Drive,name: "Membership Drive",)));
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Membership_Drive,name: "Events & Memberships",)));
                                    },
                                    child: Container(
                                      padding: EdgeInsets.all(4),
-                                     child: Text("Membership Drive",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
+                                     child: Text("Events & Memberships",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
                                    ),
                                  ),
                                  InkWell(
                                    onTap: (){
-                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.CSR_Activities,name: "CSR Activities",)));
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.CSR_Activities,name: "CSR & Fundraising",)));
                                    },
                                    child: Container(
                                      padding: EdgeInsets.all(4),
-                                     child: Text("CSR Activities",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
+                                     child: Text("CSR & Fundraising",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
                                    ),
                                  ),
                                  InkWell(
                                    onTap: (){
-                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Business_Networking,name: "Business Networking",)));
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Business_Networking,name: "Business Network (BNM)",)));
                                    },
                                    child: Container(
                                      padding: EdgeInsets.all(4),
-                                     child: Text("Business Networking",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
+                                     child: Text("Business Network (BNM)",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
+                                   ),
+                                 ),
+                                 InkWell(
+                                   onTap: (){
+                                     Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: ApiBase.Web_Event,name: "Events",)));
+                                   },
+                                   child: Container(
+                                     padding: EdgeInsets.all(4),
+                                     child: Text("Events",style: TextStyle(fontFamily: "Nunito-Bold",color: Colors.white,fontSize: 18.sp),),
                                    ),
                                  ),
                                ],
