@@ -106,7 +106,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                   height: 6.h,
                                 ),
                                 Text(
-                                  "The update requires mobile otp verification",
+                                  "Please Enter Email Address",
                                   style: TextStyle(
                                       fontFamily: "Nunito-Light",
                                       fontSize: 16.sp),
@@ -117,18 +117,18 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                // EditTextField(num, merr, Icon(MdiIcons.phone),
 
                                   // "Mobile no"),
-                                  IntlPhoneField(
+                                  TextField(
                                                   controller: num,
                                                   
                                                   
     decoration: InputDecoration(
        errorText: merr,
-        labelText: 'Phone Number',
+        labelText: 'Email ID',
         border: OutlineInputBorder(
             borderSide: BorderSide(),
         ),
     ),
-    initialCountryCode: 'IN',
+    
     onChanged: (phone) {
       setState(() {
         merr=null;
@@ -136,9 +136,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
       });
         
          
-            setState(() {
-           CountryCode=phone.completeNumber;    
-        });
+          
                 
     },
 ),
@@ -151,51 +149,17 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                         ) {
                                       setState(() {
                                         mobileno = num.text;
-                                        loading = true;
+                                       // loading = true;
+                                        change=true;
                                       });
-                                      print(mobileno);
-                                      firebase.verifyPhoneNumber(
-                                          phoneNumber:CountryCode ,
-                                          verificationCompleted:
-                                              (AuthCredential credential) {
-                                                 Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    BlocProvider(
-                                                      create: (context) =>
-                                                          ForgotPassBloc(),
-                                                      child: Forgot_pass_ield(number: mobileno,),
-                                                    )));
-                                            // Navigator.push(context, MaterialPageRoute(builder: (context)=>BlocProvider(create:(context)=>PatientRegisterBloc(),child: Sign_up(), ) ));
-                                          },
-                                          verificationFailed:
-                                              (FirebaseAuthException
-                                                  exception) {
-                                            print(exception.message);
-                                            setState(() {
-                                              print(exception.code);
-                                              userexception = exception.code +
-                                                  " try again later";
-                                              loading = false;
-                                              error = true;
-                                            });
-                                          },
-                                          codeSent: (String verificationId,
-                                              [int forceResendingToken]) {
-                                            setState(() {
-                                              _resend_otp = forceResendingToken;
-                                              vid = verificationId;
-                                              change = true;
-                                              loading = false;
-                                            });
-                                          },
-                                          codeAutoRetrievalTimeout: null,
-                                          timeout: Duration(seconds: 120));
+                                     
+                                     setState(() {
+                                       change=true;
+                                     });
                                     } else {
                                       setState(() {
                                         merr =
-                                            "Please Provide vaild Mobile Number";
+                                            "Please Provide vaild Email Address";
                                         loading = false;
                                       });
                                     }
@@ -252,7 +216,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                   height: 6.h,
                                 ),
                                 Text(
-                                  "The update requires mobile otp verification",
+                                  "The update requires email otp",
                                   style: TextStyle(
                                       fontFamily: "Nunito-Light",
                                       fontSize: 16.sp),
@@ -290,24 +254,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                     ),
                                     InkWell(
                                       onTap: () async {
-                                        Fluttertoast.showToast(
-                                            msg: "Otp generated please wait",
-                                            toastLength: Toast.LENGTH_LONG,
-                                            gravity: ToastGravity.CENTER,
-                                            timeInSecForIosWeb: 1,
-                                            backgroundColor: Colors.red,
-                                            textColor: Colors.white,
-                                            fontSize: 16.0);
-                                        print("invaild token");
-                                        print(_resend_otp);
-                                        print(mobileno);
-                                        firebase.verifyPhoneNumber(
-                                            phoneNumber: "+91" + mobileno,
-                                            forceResendingToken: _resend_otp,
-                                            timeout: Duration(seconds: 120),
-                                            verificationCompleted:
-                                                (AuthCredential credential) {
-                                                   Navigator.push(
+                                       Navigator.push(
                                             context,
                                             MaterialPageRoute(
                                                 builder: (context) =>
@@ -316,34 +263,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                                           ForgotPassBloc(),
                                                       child: Forgot_pass_ield(number: mobileno,),
                                                     )));
-                                              // Navigator.push(context, MaterialPageRoute(builder: (context)=>BlocProvider(create:(context)=>PatientRegisterBloc(),child: Sign_up(), ) ));
-                                            },
-                                            verificationFailed:
-                                                (FirebaseAuthException
-                                                    exception) {
-                                              print(exception.message);
-                                              setState(() {
-                                                userexception = exception.code +
-                                                    " try again later";
-                                                loading = false;
-                                                error = true;
-                                              });
-                                            },
-                                            codeSent: (String verificationId,
-                                                [int forceResendingToken]) {
-                                              setState(() {
-                                                _resend_otp =
-                                                    forceResendingToken;
-                                                vid = verificationId;
-
-                                                change = true;
-                                                loading = false;
-                                              });
-                                            },
-                                            codeAutoRetrievalTimeout: (id) {
-                                              loading = false;
-                                              error = true;
-                                            });
                                       },
                                       child: Text(
                                         "RESEND OTP",
@@ -361,45 +280,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                 InkWell(
                                   onTap: () async {
                                     // print(otpcode.length);
-                                    if (otpcode != null &&
-                                        otpcode.length == 6) {
-                                      setState(() {
-                                        loading = true;
-                                      });
-                                      print(vid);
-                                      print(otpcode);
-                                      final code = otpcode;
-                                      AuthCredential credential =
-                                          PhoneAuthProvider.credential(
-                                              verificationId: vid,
-                                              smsCode: code);
-                                      print("cre${credential.token}");
-
-                                      UserCredential result = await firebase
-                                          .signInWithCredential(credential)
-                                          .catchError((onError) {
-                                        //showSnackBar(msg: 'Something Wrong');
-                                        print(
-                                            'SignIn Error: ${onError.toString()}\n\n');
-                                        Fluttertoast.showToast(
-                                            msg: "Invalid otp",
-                                            toastLength: Toast.LENGTH_LONG,
-                                            gravity: ToastGravity.CENTER,
-                                            timeInSecForIosWeb: 1,
-                                            backgroundColor: Colors.red,
-                                            textColor: Colors.white,
-                                            fontSize: 16.0);
-                                        print("invaild token");
-                                        setState(() {
-                                          otpcode = null;
-                                          loading = false;
-                                        });
-                                      });
-
-                                      if (result.user != null) {
-                                        setState(() {
-                                          loading = false;
-                                        });
+                                  
                                         Navigator.push(
                                             context,
                                             MaterialPageRoute(
@@ -409,30 +290,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                                           ForgotPassBloc(),
                                                       child: Forgot_pass_ield(number: mobileno,),
                                                     )));
-                                        print("hi");
-                                      } else {
-                                        setState(() {
-                                          loading = false;
-                                        });
-
-                                        print("Error");
-                                      }
-
-                                      loading = false;
-                                      //error=true;
-
-                                    } else {
-                                      Fluttertoast.showToast(
-                                          msg: "Please provide valid otp",
-                                          toastLength: Toast.LENGTH_LONG,
-                                          gravity: ToastGravity.CENTER,
-                                          timeInSecForIosWeb: 1,
-                                          backgroundColor: Colors.red,
-                                          textColor: Colors.white,
-                                          fontSize: 16.0);
-                                    }
-
-                                    //credential!=null;
+                                       
                                   },
                                   child: Container(
                                     padding: EdgeInsets.symmetric(

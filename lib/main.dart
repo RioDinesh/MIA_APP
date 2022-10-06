@@ -103,30 +103,16 @@ class _MyAppState extends State<MyApp> {
                   }
                   if (state is AuthenticationUnauthenticated) {
                     print("here");
-                     return MultiBlocProvider(
-                      providers: [
-                      BlocProvider<ProfileBloc>(
-                        create: (BuildContext context) => ProfileBloc(),
-                      ),
-                       BlocProvider<BlogBloc>(
-                        create: (BuildContext context) => BlogBloc(),
-                      ),
-                       BlocProvider<Event_Bloc>(
-                        create: (BuildContext context) => Event_Bloc(),
-                      ),
-                      BlocProvider<News_Bloc>(
-                        create: (BuildContext context) => News_Bloc(),
-                      ),
-                    ], child: MyHomePage()); // BlocProvider(
-                    //   create: (context) {
-                    //     return LoginBloc(
-                    //       authenticationBloc:
-                    //           BlocProvider.of<AuthenticationBloc>(context),
-                    //       userRepository: widget.userRepository,
-                    //     );
-                    //   },
-                    //   child: Login_Page(),
-                    // );
+                     return BlocProvider(
+                      create: (context) {
+                        return LoginBloc(
+                          authenticationBloc:
+                              BlocProvider.of<AuthenticationBloc>(context),
+                          userRepository: widget.userRepository,
+                        );
+                      },
+                      child: Login_Page(),
+                    );
                   }
 
                   if (state is AuthenticationLoading) {

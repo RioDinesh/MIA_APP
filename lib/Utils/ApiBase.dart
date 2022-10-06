@@ -37,7 +37,7 @@ class ApiBase{
  }
  
  static String get Blog{
-   return "get_blog.php";
+   return "https://miaindia.org/category/blogs/";
  }
  static String get Event{
    return "get_event.php";

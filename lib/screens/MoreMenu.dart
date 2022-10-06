@@ -214,7 +214,7 @@ class _MoreMenuState extends State<MoreMenu> {
                      MaterialButton(
                       minWidth: 20.w,
                       onPressed: () {
-                       Navigator.push(context, MaterialPageRoute(builder: (context)=>Eventslist_view()));
+                         Navigator.push(context, MaterialPageRoute(builder: (context)=>More(url: "https://miaindia.org/category/events/",name: "Events",)));
                       },
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
